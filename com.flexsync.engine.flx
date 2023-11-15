@@ -1,0 +1,67 @@
+x = document;
+const FlexSync = {};
+
+FlexSync.dev = window;
+FlexSync.state = location;
+FlexSync.storage = {
+  publish: function(key, value) {
+    localStorage.setItem(key, value);
+  },
+
+  get: function(key){
+
+    localStorage.getItem(key);
+    
+  },
+};
+
+FlexSync.resource = function(selector) {
+  return document.querySelector(selector);
+};
+
+
+FlexSync.time = function(callback, delay) {
+  setTimeout(callback, delay);
+};
+
+FlexSync.getEvent = function(eventType, callback) {
+  FlexSync.dev.addEventListener(eventType, callback);
+};
+
+FlexSync.prmexit = function(message) {
+  FlexSync.dev.alert(message);
+};
+
+FlexSync.terminal = function(log){
+
+  FlexSync.dev.console.log(log);
+
+}
+
+FlexSync.handler = {};
+
+FlexSync.instance = function(callback) {
+  return callback;
+};
+
+
+FlexSync.getEvent("load", FlexSync.instance.handler = Loaded);
+
+function Loaded(){
+
+    FlexSync.prmexit('Cargado');
+
+    FlexSync.getEvent("click", FlexSync.instance.handler = SwitchToDark);
+
+    function SwitchToDark(){
+
+        FlexSync.storage.publish("Theme", "Dark");
+
+        const Body = FlexSync.resource(".body");
+
+        Body.style.backgroundColor = "#1c1c1c";
+
+    }
+
+}
+

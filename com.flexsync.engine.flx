@@ -49,19 +49,8 @@ FlexSync.getEvent("load", FlexSync.instance.handler = Loaded);
 
 function Loaded(){
 
-    FlexSync.prmexit('Cargado');
-
-    FlexSync.getEvent("click", FlexSync.instance.handler = SwitchToDark);
-
-    function SwitchToDark(){
-
-        FlexSync.storage.publish("Theme", "Dark");
-
-        const Body = FlexSync.resource(".body");
-
-        Body.style.backgroundColor = "#1c1c1c";
-
-    }
+  FlexSync.terminal("DevLabs Nexylons X8 64 Bits (x64)");
+  FlexSync.terminal("12th Gen DevLabs(R) X(TM) X8-20U5G4 @ 3.00GHz   2.90 GHz");
 
 }
 
